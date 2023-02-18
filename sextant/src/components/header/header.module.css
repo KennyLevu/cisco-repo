@@ -1,0 +1,5 @@
+.bar {
+  display: flex;
+  background-color: #231C07;
+  flex: 1 1 auto;
+}

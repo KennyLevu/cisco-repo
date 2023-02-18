@@ -1,10 +1,11 @@
 import './App.css';
-
+import CardView from './components/card/card';
+import Header from './components/header/header';
 function App() {
   return (
     <div className="App">
-      <Banner/>
-      {/* <AppBar/> */}
+      <Header/>
+      <CardView/>
       {/* <Nav/> */}
       {/* <CardView/> */}
     </div>
