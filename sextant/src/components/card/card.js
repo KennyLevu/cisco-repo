@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 // import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import {Box} from '@mui/system';
 import styles from './card.module.css';
 
@@ -12,23 +12,23 @@ import styles from './card.module.css';
  * @param {boolean} ipv4
  * @return {ReactDOM}
  **/
-export default function CardView({ipv4}) {
-  const url = ipv4 ? 'https://api.ipify.org?format=json' : 'https://api64.ipify.org?format=json';
-  console.log(url);
-  const iptype = ipv4 ? 'ipv4' : 'ipv6';
-  const [ip, setIp] = React.useState('');
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.ip);
-      setIp(data.ip);
-    });
+export default function CardView({name, children}) {
+  // const url = ipv4 ? 'https://api.ipify.org?format=json' : 'https://api64.ipify.org?format=json';
+  // console.log(url);
+  // const iptype = ipv4 ? 'ipv4' : 'ipv6';
+  // const [ip, setIp] = React.useState('');
+  // fetch(url)
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log(data.ip);
+  //     setIp(data.ip);
+  //   });
 
 
   return (
     <Card sx={{maxWidth: 345, minWidth: 300}}>
       <CardHeader
-        title="Network Stats"
+        title={name}
       />
       {/* <CardMedia
         component="img"
@@ -38,10 +38,7 @@ export default function CardView({ipv4}) {
       /> */}
       <CardContent>
         <Box className={styles.info}>
-          <Typography variant="body2" color="text.secondary"
-            sx={{display: 'flex'}}>
-            {iptype + ': ' + ip}
-          </Typography>
+          {children}
         </Box>
       </CardContent>
       {/* <CardActions disableSpacing>
